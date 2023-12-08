@@ -80,8 +80,13 @@ function App() {
 		})
 	}
 
-	const handleDeleteTask = () => {
-
+	const handleDeleteTask = (id) => {
+		setProjectState(prevState => {
+			return {
+				...prevState,
+				tasks: prevState.tasks.filter((task) => task.id !== id)
+			}
+		});
 	}
 
 	const selectedProject = projectState.projects.find(project => project.id === projectState.selectedProjectId);
